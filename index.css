@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  button[type="text"] {
+    padding: 5px;
+  }
+  
+  button:hover {
+    cursor: pointer;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+   .start-quiz {
+       margin-bottom: 15px;
+   }
+  
+   .next, .reset {
+       margin-top: 15px;
+   }
+  
+   .option {
+       margin-top: 10px;
+       margin-right: 5px;
+       display: block;
+   }
+  
+   input {
+       margin-right: 5px;
+   }
+  
+  .hidden {
+      display:none;
+  }
