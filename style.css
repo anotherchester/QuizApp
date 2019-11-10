@@ -1,26 +1,30 @@
-.background-container {
-    background-image: src="pics/back.jpg";
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-   
-    
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;    
+}
+
+header {
+  background-color: white;
+  display: table-row;
+  height: 1px;
+
 }
 
 body {
+  height: 100%;
+  margin: 0;
   font-family: 'Roboto Mono', monospace;
     color: rgb(255, 255, 255);
-    background-color:rgb(241, 242, 243);
-}
+   }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    /* border: pink solid 1px; */
-   
-  }
-  
+  .outer {
+    display: table;
+    width: 100%;
+    height: 100%;
+      } 
+
   h1,
   h2,
   h3,
@@ -100,21 +104,24 @@ body {
     display: none;
   }
 
+  .submit {
+    font-size:1.8rem;
+    color: whitesmoke;}
+
   button {
     font-size: 1.8rem;
     padding: 1rem 0;
     width: 20rem;
     text-align: center;
-    border: 0.1rem solid #f5f3f3;
+    border: none;
     margin-bottom: 1rem;
     text-decoration: none;
-    color: #888e94;
-    background-color: rgb(241, 242, 243);
-  }
+    background-color: transparent;
+    }
   
   button:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(248, 4, 4, 0.699);
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(129, 128, 128, 0.699);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
   }
@@ -148,11 +155,14 @@ body {
   }
 
   .options {
-    text-align: left;
-    font-size: 1.4rem;
-    width: 80%;
-    display: inline-block;
-    padding-left: 60px;
+  display: block;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding-top: 0.35em;
+  padding-bottom: 0.625em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  border: none;
   }
 
   .answer-correct {
@@ -169,6 +179,18 @@ body {
     margin-right: auto;
     width: auto;
     height: auto;
+    background-image: cover;
+    
   }
 
- 
+  .background {
+    background: url(pics/back.jpg) no-repeat center center fixed;
+    background-position: top;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+  }
+
+ html {
+   height: 100%;
+ }

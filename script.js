@@ -38,7 +38,7 @@ const questions = [
       },
 
       {
-        text: "____ is the Godzilla's name in Japanese.",
+        text: "What is the Godzilla's name in Japanese.",
         options: [
             "Gidorah",
             "Gamera",
@@ -62,7 +62,7 @@ const questions = [
       },
 
       {
-        text: "How tall is Godzilla in the Godzilla: King of Monsters?",
+        text: "How tall is Godzilla in the 'Godzilla: King of Monsters' movie?",
         options: [
             "984 ft",
             "355 ft",
@@ -85,39 +85,23 @@ const questions = [
         answerText: "Actor in a costume",
       },
 
-      {
-        text: "How was Godzilla's trademark roar created?",
-        options: [
-            "Rubbing the strings of a contrabass with a mesh glove and adding reverberation to a sound",
-            "Tapping a wrench against the support wire of a telephone pole and slowing down the resulting sound several times",
-            "Digitally synthesizing the combined noises of a lion, an elephant, and a locomotive",
-            "Recording the noise made by water running through a sewer and later adding an electronic overlay to it on a computer",
-        ],
-        indexOfAnswer: 0,
-        answerText: "Rubbing the strings of a contrabass with a mesh glove and adding reverberation to a sound",
-      },
+      
 ]
 //startView will default due to STORE values; present user start button to 
 const startView = function() {
-    return `<div "logo"><img src="pics/start.jpg" class="center"></div>
+    return `
+    <div "start"><img src="pics/start.jpg" class="center"></div>
     <h1 class="flex-center flex-column">Godzilla Quiz</h1>
-</header>
-<div class ="background-container">
-    <div class="question-container flex-center flex-column">
-        <h2 class = "start-quiz hidden">Start Quiz</h2>
-            <form class="js-quiz-questions-form flex-center flex-column">
+        <form class="js-quiz-questions-form flex-center flex-column">
         <button type="submit" class = "start">Start!</button>
         </form>
-    </div>
-</div>  `;
+    </div>  `;
 }
 //click start to advance to get questions
 function startQuiz() {
     $(document).on('click', '.start', function(event){
         event.preventDefault();
         STORE.view = 'question';
-        console.log("startQuiz ran");
-        console.log(questions[STORE.currentQuestion].answer);
         createQuestion();
         render();
     }
@@ -134,7 +118,6 @@ function createAnswerOptions() {
 function createQuestion() {
     let question = questions[STORE.currentQuestion].text;
     STORE.questionText = question;
-    console.log(question);
     createAnswerOptions();
 }
 
@@ -209,58 +192,50 @@ function restartQuiz() {
 }
 
 const questionView = function() {
-    return `<header><h1 class="flex-center flex-column">Godzilla Quiz</h1>
+    return `<div class="background">
+    <h1 class="flex-center flex-column">Godzilla Quiz</h1>
     <section class="score flex-center flex-column">
-        <a href= ""><img class="logo" src="pics/back.jpg" alt = "Godzilla and Mechadzilla looking at each other" class="backcenter">
-        </a>
-        <ul class="status-bar">
+            <ul class="status-bar">
             <li class = "status-bar question-display">Question: ${STORE.currentQuestion + 1}/${questions.length}</li>
             <li class = "status-bar score-display">Score: ${STORE.score}/${questions.length}</li>
         </ul>
     </section>
-    </div>
-</header>
-<div class = "background-container">
     <div class="question-container flex-center flex-column">
-        <h2 class = "questions-quiz hidden">Question 1</h2>
-        <form class="js-quiz-questions-form flex-center flex-column">
-            <section class = "question-text">
+            <form class="js-quiz-questions-form flex-center flex-column">
+            <section = "question-text">
                 <p>${questions[STORE.currentQuestion].text}</p>
             </section>
-            <section class = "options">
-                <label>
+            <fieldset class = "options">
+                <legend>
                     <input type="radio" name="options" required value= 0 > 
-                    ${STORE.options[0]}</label><br>
-                <label>
+                    ${STORE.options[0]}</legend><br>
+                <legend>
                     <input type="radio" name="options" value= 1 required >
-                 ${STORE.options[1]}</label><br>
-                <label>
+                 ${STORE.options[1]}</legend><br>
+                <legend>
                     <input type="radio" name="options" value= 2 required >
-                 ${STORE.options[2]}</label><br>
-                <label>
+                 ${STORE.options[2]}</legend><br>
+                <legend>
                     <input type="radio" name="options" value= 3 required >
-                 ${STORE.options[3]}</label><br>
-            </section>
+                 ${STORE.options[3]}</legend><br>
+            </fieldset>
             <br>
             <br>
-  <button type="submit" class = "submit">Submit answer</button>
+  <button type="submit" class="submit">Submit answer</button>
 </form>
 </div>
 </div>`
 }
 
 const answerView = function() {
-    return `<header><h1 class="flex-center flex-column">Godzilla Quiz</h1>
+    return `<div class = "background">
+    <h1 class="flex-center flex-column">Godzilla Quiz</h1>
     <section class="score flex-center flex-column">
-        <a href= ""><img class="logo" src="pics/back.jpg" alt = "Godzilla walking it the city"/>
-       </a>
-       <ul class="status-bar">
+           <ul class="status-bar">
            <li class = "status-bar question-display">Question: ${STORE.currentQuestion + 1}/${questions.length}</li>
            <li class = "status-bar score-display">Score: ${STORE.score}/${questions.length}</li>
        </ul>
    </section>
-</header>
-<div class = "background-container">
    <div class="question-container flex-center flex-column">
        <h2 class = "questions-quiz">${STORE.answerResponse}</h2>
        <form class="js-quiz-questions-form flex-center flex-column">
@@ -280,14 +255,10 @@ const answerView = function() {
 }
 
 const endView = function(){
-    return `<header>
-    <h1 class="flex-center flex-column">Godzilla Quiz</h1>
+    return `<h1 class="flex-center flex-column">Godzilla Quiz</h1>
      <section>
-     <div "logo"><img src="pics/start.jpg" class="center"></div>        
+     <div "start"><img src="pics/start.jpg" class="center"></div>        
     </section>
-</header>
-<div class = "background-container">
-    <div class="question-container flex-center flex-column">
         <h3 class = questions-quiz>You've done!</h3>
         <form class="js-quiz-questions-form flex-center flex-column">
             <span class = "final-answer-results">
@@ -295,8 +266,7 @@ const endView = function(){
                     </span>
             <button type="submit" class = "start-over">Try again!</button>
         </form>
-    </div>
-</div>`
+    </div>`
 }
 
 
