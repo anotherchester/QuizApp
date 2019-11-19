@@ -6,24 +6,14 @@
 }
 
 header {
-  background-color: white;
-  display: table-row;
-  height: 1px;
-
-}
+  margin: auto;
+  }
 
 body {
-  height: 100%;
   margin: 0;
   font-family: 'Roboto Mono', monospace;
-    color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
    }
-
-  .outer {
-    display: table;
-    width: 100%;
-    height: 100%;
-      } 
 
   h1,
   h2,
@@ -33,9 +23,9 @@ body {
   }
   
   h1 {
-    font-size: 3.8rem;
+    font-size: 36px;
     color: #1d1c1cd8;
-    margin-bottom: 0.25rem;
+    margin-bottom: 10px;
   }
   
   h1 > span {
@@ -62,18 +52,16 @@ body {
     font-size: 1.8rem;
     font-weight: 500;
     color: whitesmoke;
-    padding: 40px;
+    padding: 20px;
     text-align: center;
   }
 
   
   .question-container {
     width: 60%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 80rem;
     margin: 0 auto;
     
   }
@@ -143,7 +131,7 @@ body {
     font-weight: 500;
     color: black;
     padding-bottom: 20px;
-    padding-top: 0px;
+    padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
     display: inline-flex;
@@ -156,13 +144,8 @@ body {
 
   .options {
   display: block;
-  margin-left: 2px;
-  margin-right: 2px;
-  padding-top: 0.35em;
-  padding-bottom: 0.625em;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
   border: none;
+  padding: auto;
   }
 
   .answer-correct {
@@ -185,12 +168,16 @@ body {
 
   .background {
     background: url(pics/back.jpg) no-repeat center center fixed;
-    background-position: top;
     background-size: cover;
-    height: 100%;
     overflow: hidden;
+    width: 100%;
   }
 
- html {
-   height: 100%;
- }
+legend {
+  text-align: center;
+}  
+
+.input_options {
+  display: block;
+}
+ 

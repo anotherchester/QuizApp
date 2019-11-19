@@ -1,5 +1,3 @@
-// questions & answers
-// console.log("script.js is connected")
 const STORE = {
     view: "start",
     currentQuestion: 0,
@@ -87,17 +85,17 @@ const questions = [
 
       
 ]
-//startView will default due to STORE values; present user start button to 
+
 const startView = function() {
     return `
-    <div "start"><img src="pics/start.jpg" class="center"></div>
+    <div class="start"><img src="pics/start.jpg" class="center" alt="Godzilla holding train"></div>
     <h1 class="flex-center flex-column">Godzilla Quiz</h1>
         <form class="js-quiz-questions-form flex-center flex-column">
         <button type="submit" class = "start">Start!</button>
         </form>
     </div>  `;
 }
-//click start to advance to get questions
+
 function startQuiz() {
     $(document).on('click', '.start', function(event){
         event.preventDefault();
@@ -108,20 +106,19 @@ function startQuiz() {
     );
 }
 
-//provide options based on current question - loop through questions array
 function createAnswerOptions() {
     let question = questions[STORE.currentQuestion].text;
     STORE.options = questions[STORE.currentQuestion].options;
 }
 
-//display question based on currentQuestion value
+
 function createQuestion() {
     let question = questions[STORE.currentQuestion].text;
     STORE.questionText = question;
     createAnswerOptions();
 }
 
-//checks if answer is correct and creates response for answerView
+
 function checkAnswer() {
     $(document).on('click', '.submit', function(event){
         event.preventDefault();
@@ -142,30 +139,30 @@ function checkAnswer() {
         });
     
 }
-//increases score if correct answer
+
 function upScore() {
     STORE.score = STORE.score + 1;
 }
-//advances quiz 
+
 function advanceQuestion() {
     STORE.currentQuestion = STORE.currentQuestion + 1;
     createAnswerOptions();
 }
-//if answer is correct
+
 function correctAnswer() {
     STORE.answerResponse = "Correct!";
     STORE.displayCorrectAnswer = "";
     upScore();
 
 }
-//if answer is incorrect
+
 function wrongAnswer() {
     STORE.answerResponse = "Wrong answer!";
     STORE.displayCorrectAnswer = "The correct answer is: " + " " + questions[STORE.currentQuestion].answerText;
     
     
 }
-//next question...
+
 function nextQuestion() {
     $(document).on('click', '.next', function(event){
         event.preventDefault();
@@ -181,7 +178,7 @@ function resetStats() {
     STORE.currentQuestion = 0;
     STORE.score = 0;
 }
-//restart quiz & reset score
+
 function restartQuiz() {
     $(document).on('click', '.restart', function(event){
         event.preventDefault();
@@ -192,7 +189,7 @@ function restartQuiz() {
 }
 
 const questionView = function() {
-    return `<div class="background">
+    return `
     <h1 class="flex-center flex-column">Godzilla Quiz</h1>
     <section class="score flex-center flex-column">
             <ul class="status-bar">
@@ -205,30 +202,25 @@ const questionView = function() {
             <section = "question-text">
                 <p>${questions[STORE.currentQuestion].text}</p>
             </section>
-            <fieldset class = "options">
-                <legend>
-                    <input type="radio" name="options" required value= 0 > 
-                    ${STORE.options[0]}</legend><br>
-                <legend>
-                    <input type="radio" name="options" value= 1 required >
-                 ${STORE.options[1]}</legend><br>
-                <legend>
-                    <input type="radio" name="options" value= 2 required >
-                 ${STORE.options[2]}</legend><br>
-                <legend>
-                    <input type="radio" name="options" value= 3 required >
-                 ${STORE.options[3]}</legend><br>
+            <fieldset class="options">
+                <legend>Choose your answer: </legend>
+                <div class ="input_options">    <input type="radio" name="options" required value= 0 > 
+                ${STORE.options[0]} </div>
+                <div class="input_options">    <input type="radio" name="options" value= 1 required >
+                ${STORE.options[1]} </div>
+                <div class="input_options">    <input type="radio" name="options" value= 2 required >
+                ${STORE.options[2]} </div>
+                <div class="input_options">    <input type="radio" name="options" value= 3 required >
+                ${STORE.options[3]} </div>
             </fieldset>
-            <br>
-            <br>
-  <button type="submit" class="submit">Submit answer</button>
+            
+            <button type="submit" class="submit">Submit answer</button>
 </form>
-</div>
 </div>`
 }
 
 const answerView = function() {
-    return `<div class = "background">
+    return `
     <h1 class="flex-center flex-column">Godzilla Quiz</h1>
     <section class="score flex-center flex-column">
            <ul class="status-bar">
@@ -248,7 +240,6 @@ const answerView = function() {
 
 
 
-</div>
 
 </div>
 `
@@ -257,7 +248,7 @@ const answerView = function() {
 const endView = function(){
     return `<h1 class="flex-center flex-column">Godzilla Quiz</h1>
      <section>
-     <div "start"><img src="pics/start.jpg" class="center"></div>        
+     <div class="start"><img src="pics/start.jpg" class="center" alt="Godzilla holding train"></div>        
     </section>
         <h3 class = questions-quiz>You've done!</h3>
         <form class="js-quiz-questions-form flex-center flex-column">
@@ -272,16 +263,20 @@ const endView = function(){
 
 const render = function() {
     if (STORE.view === "start") {
+        $('body').removeClass('background');
         $('header').html(startView());
     }
     else if (STORE.view === "question") {
+        $('body').addClass('background');
         let question = questions[STORE.currentQuestion];
         $('header').html(questionView());
     }
     else if (STORE.view === "answer") {
+        $('body').addClass('background');
         $('header').html(answerView());
     }
     else if(STORE.view === "endView") {
+        $('body').removeClass('background');
         $('header').html(endView());
     }
 }
