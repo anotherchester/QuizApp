@@ -208,7 +208,7 @@ const questionView = function() {
                 ${STORE.options[0]} </div>
                 <div class="input_options">    <input type="radio" name="options" value=1 required >
                 ${STORE.options[1]} </div>
-                <div class="input_options">    <input type="radio" name="options" value 2 required >
+                <div class="input_options">    <input type="radio" name="options" value=2 required >
                 ${STORE.options[2]} </div>
                 <div class="input_options">    <input type="radio" name="options" value=3 required >
                 ${STORE.options[3]} </div>
