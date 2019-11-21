@@ -91,7 +91,7 @@ const startView = function() {
     <div class="start"><img src="pics/start.jpg" class="center" alt="Godzilla holding train"></div>
     <h1 class="flex-center flex-column">Godzilla Quiz</h1>
         <form class="js-quiz-questions-form flex-center flex-column">
-        <button type="submit" class = "start">Start!</button>
+        <button type="submit" class ="start">Start!</button>
         </form>
     </div>  `;
 }
@@ -191,26 +191,26 @@ function restartQuiz() {
 const questionView = function() {
     return `
     <h1 class="flex-center flex-column">Godzilla Quiz</h1>
-    <section class="score flex-center flex-column">
+    <section name="statusBar" class="score flex-center flex-column">
             <ul class="status-bar">
-            <li class = "status-bar question-display">Question: ${STORE.currentQuestion + 1}/${questions.length}</li>
-            <li class = "status-bar score-display">Score: ${STORE.score}/${questions.length}</li>
+            <li class="status-bar question-display">Question: ${STORE.currentQuestion + 1}/${questions.length}</li>
+            <li class="status-bar score-display">Score: ${STORE.score}/${questions.length}</li>
         </ul>
     </section>
     <div class="question-container flex-center flex-column">
             <form class="js-quiz-questions-form flex-center flex-column">
-            <section = "question-text">
-                <p>${questions[STORE.currentQuestion].text}</p>
+            <section name="question-text">
+                <h3>${questions[STORE.currentQuestion].text}</h3>
             </section>
             <fieldset class="options">
                 <legend>Choose your answer: </legend>
-                <div class ="input_options">    <input type="radio" name="options" required value= 0 > 
+                <div class ="input_options">    <input type="radio" name="options" required value=0 > 
                 ${STORE.options[0]} </div>
-                <div class="input_options">    <input type="radio" name="options" value= 1 required >
+                <div class="input_options">    <input type="radio" name="options" value=1 required >
                 ${STORE.options[1]} </div>
-                <div class="input_options">    <input type="radio" name="options" value= 2 required >
+                <div class="input_options">    <input type="radio" name="options" value 2 required >
                 ${STORE.options[2]} </div>
-                <div class="input_options">    <input type="radio" name="options" value= 3 required >
+                <div class="input_options">    <input type="radio" name="options" value=3 required >
                 ${STORE.options[3]} </div>
             </fieldset>
             
@@ -222,17 +222,17 @@ const questionView = function() {
 const answerView = function() {
     return `
     <h1 class="flex-center flex-column">Godzilla Quiz</h1>
-    <section class="score flex-center flex-column">
+    <section name="statusBar" class="score flex-center flex-column">
            <ul class="status-bar">
-           <li class = "status-bar question-display">Question: ${STORE.currentQuestion + 1}/${questions.length}</li>
-           <li class = "status-bar score-display">Score: ${STORE.score}/${questions.length}</li>
+           <li class="status-bar question-display">Question: ${STORE.currentQuestion + 1}/${questions.length}</li>
+           <li class="status-bar score-display">Score: ${STORE.score}/${questions.length}</li>
        </ul>
    </section>
    <div class="question-container flex-center flex-column">
-       <h2 class = "questions-quiz">${STORE.answerResponse}</h2>
+       <h2 class="questions-quiz">${STORE.answerResponse}</h2>
        <form class="js-quiz-questions-form flex-center flex-column">
            <section class = "answer-result">
-           <p class = "answer-correct">${STORE.displayCorrectAnswer}</p>
+           <p class="answer-correct">${STORE.displayCorrectAnswer}</p>
                 </section>
    
            <button type="submit" class = "next">Next Question</button>
@@ -250,12 +250,12 @@ const endView = function(){
      <section>
      <div class="start"><img src="pics/start.jpg" class="center" alt="Godzilla holding train"></div>        
     </section>
-        <h3 class = questions-quiz>You've done!</h3>
+        <h3 class=questions-quiz>You've done!</h3>
         <form class="js-quiz-questions-form flex-center flex-column">
-            <span class = "final-answer-results">
-                <h3 class = "final-status-bar">Your Score Is: <br> ${STORE.score}/${questions.length}</h3>
+            <span class="final-answer-results">
+                <h3 class="final-status-bar">Your Score Is: <br> ${STORE.score}/${questions.length}</h3>
                     </span>
-            <button type="submit" class = "start-over">Try again!</button>
+            <button type="submit" class="start-over">Try again!</button>
         </form>
     </div>`
 }
