@@ -93,32 +93,33 @@ body {
   }
 
   .submit {
-    font-size:1.8rem;
-    color: whitesmoke;}
+    font-size:1rem;
+   }
 
   button {
+    box-sizing: border-box;
+    display: inline-block;
     font-size: 1rem;
-    padding: 1rem 0;
+    padding: 0.35em 1.2em;
     width: 20rem;
     text-align: center;
-    border:1 px whitesmoke;
-    margin-bottom: 1rem;
+    border:0.1em solid whitesmoke;
+    border-radius: 0.12em;
+    margin: 0 0.3em 0.3em 0;
     text-decoration: none;
+    text-align: center;
+    transition: all 0.2s;
     background-color: transparent;
     }
   
   button:hover {
-    cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(129, 128, 128, 0.699);
-    transform: translateY(-0.1rem);
-    transition: transform 150ms;
+    color:#000000;
+    background-color:#FFFFFF;;
   }
+
   
-  button[disabled]:hover {
-    cursor: not-allowed;
-    box-shadow: none;
-    transform: none;
-  }
+  
+  
 
   .score {
     height: 40px;
