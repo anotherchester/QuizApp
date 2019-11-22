@@ -28,15 +28,15 @@ const questions = [
         options: [
             "Atomic breath",
             "Laser eye-beams",
-            "Electric tail",
-            "Ultrasonic wave",
+            "The electric tail",
+            "An ultrasonic wave",
         ],
         indexOfAnswer: 0,
         answerText: "Atomic breath",
       },
 
       {
-        text: "What is the Godzilla's name in Japanese.",
+        text: "What is Godzilla's name in Japanese?",
         options: [
             "Gidorah",
             "Gamera",
@@ -48,7 +48,7 @@ const questions = [
       },
 
       {
-        text: "How many heads King Gidorah have?",
+        text: "How many heads does King Gidorah have?",
         options: [
             "4",
             "3",
@@ -60,7 +60,7 @@ const questions = [
       },
 
       {
-        text: "How tall is Godzilla in the 'Godzilla: King of Monsters' movie?",
+        text: "How tall is Godzilla in Godzilla: King of Monsters (2019 film)?",
         options: [
             "984 ft",
             "355 ft",
@@ -72,15 +72,15 @@ const questions = [
       },
 
       {
-        text: "How was Godzilla traditionally portrayed in movies?",
+        text: "How has Godzilla's appearence been traditionally portrayed in movies?",
         options: [
-            "Puppet",
-            "CGI",
-            "Actor in a costume",
-            "Animation",
+            "By a puppet",
+            "Through CGI (Computer-Generated Imaginery)",
+            "By an actor in costume",
+            "Using animation",
         ],
         indexOfAnswer: 2,
-        answerText: "Actor in a costume",
+        answerText: " By an actor in costume",
       },
 
       
@@ -157,7 +157,7 @@ function correctAnswer() {
 }
 
 function wrongAnswer() {
-    STORE.answerResponse = "Wrong answer!";
+    STORE.answerResponse = "Wrong!";
     STORE.displayCorrectAnswer = "The correct answer is: " + " " + questions[STORE.currentQuestion].answerText;
     
     
@@ -203,7 +203,7 @@ const questionView = function() {
                 <h3>${questions[STORE.currentQuestion].text}</h3>
             </section>
             <fieldset class="options">
-                <legend>Choose your answer: </legend>
+                <legend>Select an answer: </legend>
                 <div class ="input_options">    <input type="radio" name="options" required value=0 > 
                 ${STORE.options[0]} </div>
                 <div class="input_options">    <input type="radio" name="options" value=1 required >
@@ -214,7 +214,7 @@ const questionView = function() {
                 ${STORE.options[3]} </div>
             </fieldset>
             
-            <button type="submit" class="submit">Submit answer</button>
+            <button type="submit" class="submit">Submit your answer</button>
 </form>
 </div>`
 }
@@ -235,7 +235,7 @@ const answerView = function() {
            <p class="answer-correct">${STORE.displayCorrectAnswer}</p>
                 </section>
    
-           <button type="submit" class = "next">Next Question</button>
+           <button type="submit" class = "next">Next</button>
        </form>
 
 

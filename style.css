@@ -97,11 +97,11 @@ body {
     color: whitesmoke;}
 
   button {
-    font-size: 1.8rem;
+    font-size: 1rem;
     padding: 1rem 0;
     width: 20rem;
     text-align: center;
-    border: none;
+    border:1 px whitesmoke;
     margin-bottom: 1rem;
     text-decoration: none;
     background-color: transparent;
