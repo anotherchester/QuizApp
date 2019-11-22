@@ -158,7 +158,7 @@ function correctAnswer() {
 
 function wrongAnswer() {
     STORE.answerResponse = "Wrong!";
-    STORE.displayCorrectAnswer = "The correct answer is: " + " " + questions[STORE.currentQuestion].answerText;
+    STORE.displayCorrectAnswer = "The correct answer is " + " " + questions[STORE.currentQuestion].answerText;
     
     
 }
